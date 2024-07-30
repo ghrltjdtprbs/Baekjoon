@@ -1,0 +1,37 @@
+import java.util.Scanner;
+import java.util.Stack;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int N = scanner.nextInt(); // 건물의 수
+
+        Stack<Integer> stack = new Stack<>();
+        int count = 0;
+
+        for (int i = 0; i < N; i++) {
+            int x = scanner.nextInt(); // 건물의 x 좌표 (사용하지 않음)
+            int height = scanner.nextInt(); // 건물의 높이
+
+            while (!stack.isEmpty() && stack.peek() > height) {
+                stack.pop();
+                count++;
+            }
+
+            if (!stack.isEmpty() && stack.peek() == height) {
+                continue;
+            }
+
+            if (height > 0) {
+                stack.push(height);
+            }
+        }
+
+        while (!stack.isEmpty()) {
+            stack.pop();
+            count++;
+        }
+
+        System.out.println(count);
+    }
+}
