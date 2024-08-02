@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        sc.close();
+
+        int line = 0; // 대각선의 번호
+        int count = 0; // 몇 번째 수인지
+
+        // 해당 n이 몇 번째 대각선에 위치하는지 찾기
+        while (count < n) {
+            line++;
+            count += line;
+        }
+
+        int offset = count - n; // 대각선에서 몇 번째 위치인지 계산
+
+        int numerator, denominator;
+        if (line % 2 == 0) { // 짝수 번째 대각선
+            numerator = line - offset;
+            denominator = 1 + offset;
+        } else { // 홀수 번째 대각선
+            numerator = 1 + offset;
+            denominator = line - offset;
+        }
+
+        System.out.println(numerator + "/" + denominator);
+    }
+}
