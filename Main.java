@@ -2,7 +2,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        //변의 방향에서 동쪽은 1, 서쪽은 2, 남쪽은 3, 북쪽은 4로 나타낸다.
+        //변의 방향에서 동쪽은 1, 서쪽은 2, 남쪽은 3, 북쪽은 4로
         int[] direction = new int[6];
         int[] length = new int[6];
         int final_high=0;
