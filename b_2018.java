@@ -1,28 +1,42 @@
-import java.util.*;
+package day_2;
 
-/*
- * 슬라이딩 윈도우 활용
- * */
+import java.util.Scanner;
+
 public class b_2018 {
-
-    public static void main(String[] args) {
+    public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
-        int start = 1;
-        int end = 1;
-        int answer = 0;
-        int current = 0;
+        int[] arr = new int[N];
 
-        while(end <= N){
-            current += end;
-            end++;
-            while(current >= N){
-                if(current == N) answer++;
-                current -= start;
-                start++;
+        for(int i = 0; i < arr.length; i++){
+            arr[i] = i + 1;
+        }
+
+        int start = 0;
+        int end = 0;
+        int answer = 0;
+        int tmp = 1;
+
+        while(start < arr.length){
+            if(tmp >= N){
+                if(tmp == N) answer++;
+                if(start < arr.length - 1){
+                    tmp -= arr[start];
+                    start++;
+                }else{
+                    break;
+                }
+            }else{
+                if(end < arr.length - 1){
+                    end++;
+                    tmp += arr[end];
+                }else{
+                    break;
+                }
             }
         }
 
-        System.out.print(answer);
+        System.out.println(answer);
     }
+
 }
