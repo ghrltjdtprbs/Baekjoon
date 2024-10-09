@@ -1,27 +1,23 @@
-/*
-* enter입력 이후에 중복된 아이디는 일반 채팅
-* enter 이후 set에 아이디 넣기
-* enter이 또 입력되었으면, 그동안 set에 있는 아이디 개수 센 다음 초기화
-* */
+package day_4;
 import java.util.*;
+/*
+- enter 입력 후 set으로 id 저장
+ */
 public class b_25192 {
-    public static void main(String[] args) {
+    public static void main(String args[]){
         Scanner sc = new Scanner(System.in);
-        int count = sc.nextInt();
-        sc.nextLine();
+        int N = sc.nextInt();
+        Set<String> set = new HashSet<>();
         int answer = 0;
-        Set<String> set = new HashSet<String>();
-
-        for(int i = 0; i < count; i++){
-            String message = sc.nextLine();
-            if(message.equals("ENTER")){
+        for(int i = 0; i < N; i++){
+            String id = sc.next();
+            if(id.equals("ENTER")){
                 answer += set.size();
-                set.clear();
+                set.removeAll(set);
             }else{
-                set.add(message);
+                set.add(id);
             }
         }
-
         answer += set.size();
         System.out.println(answer);
 
