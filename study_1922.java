@@ -38,6 +38,7 @@ public class study_1922 {
             int start_node = Integer.parseInt(st.nextToken());
             int end_node = Integer.parseInt(st.nextToken());
             int cost = Integer.parseInt(st.nextToken());
+
             edges.add(new Edge(start_node,end_node,cost));
         }
         Collections.sort(edges);
@@ -52,7 +53,7 @@ public class study_1922 {
                 count++;
             }
             //최소비용스패닝트리는 최종 간선이 노드 - 1개
-            if(count == node - 1) break;
+            //if(count == node - 1) break;
         }
 
         System.out.println(minCost);

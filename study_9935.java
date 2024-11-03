@@ -38,6 +38,7 @@ public class study_9935 {
                 }
             }
         }
+
         if (stack.size() == 0) {
             System.out.println("FRULA");
         } else {
